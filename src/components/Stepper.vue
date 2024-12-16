@@ -8,25 +8,13 @@ defineProps({
 
 const emit = defineEmits(["nextStepButton", "PreviousStepButton"]);
 
-const getBackToPreviousPage = () => {
-  console.log("Hi");
-};
-
 const onClickStepButton = () => {
   emit("nextStepButton");
 };
 
-const savedValue = localStorage.getItem('selectedValue');
-
 const onClickPreviousButton = () => {
   emit("PreviousStepButton");
-
-  console.log("savedValue", savedValue);
 };
-
-const isDisabled = () => {
-  return !savedValue;
-}
 </script>
 
 <template>
