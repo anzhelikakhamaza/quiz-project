@@ -1,5 +1,4 @@
 <script setup>
-  import router from "@/router.js";
   import {ref} from "vue";
 
   const email = ref(null);
@@ -12,12 +11,6 @@
     } else {
       errorMessage.value = null;
       return true;
-    }
-  }
-
-  const handleSubmit = () => {
-    if (validateForm()) {
-      router.push('/thank-you-page');
     }
   }
 </script>
@@ -34,7 +27,7 @@
       <p class="policy">By continuing I agree with <a>Privacy policy</a> and <br><a>Terms of use</a>.</p>
     </div>
 
-    <button @click="handleSubmit">Next</button>
+    <!-- <button @click="handleSubmit">Next</button> -->
   </div>
 </template>
 
