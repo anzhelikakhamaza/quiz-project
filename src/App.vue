@@ -17,6 +17,7 @@ const pageObject = {
 };
 
 const currentPage = ref(1);
+const totalPage = ref(5)
 
 const getQuestionsComponent = () => {
   return pageObject[currentPage.value];
@@ -40,6 +41,7 @@ const previousStepButton = () => {
     @nextStepButton="nextStepButton"
     @PreviousStepButton="previousStepButton"
     :currentPage="currentPage"
+    :totalPage="totalPage"
   >
     <component :is="getQuestionsComponent()" />
   </Stepper>

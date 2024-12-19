@@ -1,25 +1,28 @@
 <script setup>
 import {computed} from "vue";
 
-defineProps({
+const props = defineProps({
   currentPage: {
     type: Number,
     required: true,
   },
+  totalPage: {
+    type: Number,
+    required: true,
+  }
 });
 
-// const isHidden = computed(() => currentPage < 2);
-//
-// const progressBarIndex = computed(() => `${(currentPage / 5) * 100}%`);
+const isHidden = computed(() => props.currentPage < 2);
+const progressBarIndex = computed(() => `${(props.currentPage / props.totalPage) * 100}%`);
 
-const emit = defineEmits(["nextStepButton", "PreviousStepButton"]);
+const emit = defineEmits(["nextStepButton", "previousStepButton"]);
 
 const onClickStepButton = () => {
   emit("nextStepButton");
 };
 
 const onClickPreviousButton = () => {
-  emit("PreviousStepButton");
+  emit("previousStepButton");
 };
 </script>
 
@@ -27,16 +30,19 @@ const onClickPreviousButton = () => {
   <div class="step-container">
     <header class="step-header">
       <div class="step-header-wrapper">
-        <button v-if="!isHidden" class="step-back-button" :style="{width: progressBarIndex}" @click="onClickPreviousButton">
-          <img src="@/img/previousIcon.svg" alt="previous icon" class="button-icon" />
-        </button>
+        <div class="step-header-button-wrapper">
+          <button v-if="!isHidden" class="step-back-button"  @click="onClickPreviousButton">
+            <img src="@/img/previousIcon.svg" alt="previous icon" class="button-icon" />
+          </button>
+        </div>
         <div class="step-page-indicator">
-          <span class="step-current-page">{{ currentPage }}</span>/5
+          <span class="step-current-page">{{ currentPage }}</span>/{{ totalPage }}
         </div>
       </div>
-      <div class="step-progress-bar">
+      <div class="step-progress-bar" >
         <div
             class="step-progress-bar-fill"
+            :style="{width: progressBarIndex}"
         ></div>
       </div>
     </header>

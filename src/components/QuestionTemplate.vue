@@ -14,7 +14,7 @@ const questionsStore = useQuestionsStore();
 
 const saveToStorage = (answer) => {
   questionsStore.selectedValue = answer;
-  console.log(questionsStore.selectedValue);
+  console.log(questionsStore.questions);
 }
 
 </script>
