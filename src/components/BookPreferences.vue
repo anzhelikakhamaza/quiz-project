@@ -7,7 +7,7 @@ const currentPage = 4;
 const questionsStore = useQuestionsStore();
 const questionTitle = questionsStore.questions[3]?.question || "";
 const subTitle = questionsStore.questions[3]?.subtitle || "";
-const bookCons = questionsStore.questions[1]?.answers || "";
+const bookCons = questionsStore.questions[3]?.answers || "";
 </script>
 
 <template>

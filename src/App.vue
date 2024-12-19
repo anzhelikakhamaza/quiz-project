@@ -3,7 +3,6 @@ import { ref } from "vue";
 
 import Stepper from "./components/Stepper.vue";
 import LanguageSelect from "./components/LanguageSelect.vue";
-import { computed } from "vue";
 import GenderSelect from "./components/GenderSelect.vue";
 import AgeSelect from "./components/AgeSelect.vue";
 import BookPreferences from "./components/BookPreferences.vue";
@@ -29,7 +28,7 @@ const nextStepButton = () => {
   }
 };
 
-const PreviousStepButton = () => {
+const previousStepButton = () => {
   if (currentPage.value > 1) {
     currentPage.value--;
   }
@@ -39,11 +38,12 @@ const PreviousStepButton = () => {
 <template>
   <Stepper
     @nextStepButton="nextStepButton"
-    @PreviousStepButton="PreviousStepButton"
+    @PreviousStepButton="previousStepButton"
     :currentPage="currentPage"
   >
     <component :is="getQuestionsComponent()" />
   </Stepper>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

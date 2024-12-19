@@ -7,7 +7,7 @@ const currentPage = 3;
 const questionsStore = useQuestionsStore();
 const questionTitle = questionsStore.questions[2]?.question || "";
 const subTitle = questionsStore.questions[2]?.subtitle || "";
-const ageGap = questionsStore.questions[1]?.answers || "";
+const ageGap = questionsStore.questions[2]?.answers || "";
 </script>
 
 <template>

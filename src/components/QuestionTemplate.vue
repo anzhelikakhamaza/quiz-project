@@ -1,6 +1,5 @@
 <script setup>
 import useQuestionsStore from "@/stores/questions.js";
-import {ref} from "vue";
 
 defineProps({
   currentPage: Number,
@@ -12,14 +11,12 @@ defineProps({
 });
 
 const questionsStore = useQuestionsStore();
-const selectedValue = ref('')
 
-const saveToLocalStorage = () => {
-  selectedValue.value = questionsStore.questions[0]?.selectedValue || "";
-
-  localStorage.setItem('selectedValue', JSON.stringify(selectedValue.value));
-  console.log("selectedValue: ", selectedValue.value);
+const saveToStorage = (answer) => {
+  questionsStore.selectedValue = answer;
+  console.log(questionsStore.selectedValue);
 }
+
 </script>
 
 <template>
@@ -29,20 +26,27 @@ const saveToLocalStorage = () => {
       <p class="quiz-question-subtitle">{{ subTitle }}</p>
     </div>
     <div class="quiz-buttons">
-      <button v-for="button in buttons" :key="button" @click="saveToLocalStorage" class="quiz-button">
+      <button v-for="button in buttons" :key="button" @click="saveToStorage(button)" :class="{'quiz-button--active': button === questionsStore.selectedValue}" class="quiz-button">
         {{ button }}
       </button>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
+:root {
+  --background-color: #1f002b;
+  --text-color: white;
+  --subtitle-color: #c4c8cc;
+  --button-bg-color: #36173d;
+  --button-hover-color: #e4229c;
+}
+
 .quiz-container {
-  background-color: #1f002b;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -52,13 +56,13 @@ const saveToLocalStorage = () => {
 }
 
 .quiz-question-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 
 .quiz-question-subtitle {
-  color: #c4c8cc;
+  color: var(--subtitle-color);
   font-size: 16px;
   margin: 8px 0 0;
 }
@@ -77,52 +81,19 @@ const saveToLocalStorage = () => {
   cursor: pointer;
   border: none;
   border-radius: 12px;
-  background-color: #36173d;
-  color: white;
+  background-color: var(--button-bg-color);
+  color: var(--text-color);
   text-align: center;
   transition: background-color 0.3s ease;
 }
 
 .quiz-button:hover {
-  background-color: #e4229c;
+  background-color: var(--button-hover-color);
 }
 
-@media (min-width: 576px) {
-  .quiz-container {
-    max-width: 500px;
-  }
-
-  .quiz-question-title {
-    font-size: 28px;
-  }
-
-  .quiz-question-subtitle {
-    font-size: 18px;
-  }
-
-  .quiz-button {
-    font-size: 18px;
-    padding: 18px;
-  }
-}
-
-@media (min-width: 768px) {
-  .quiz-container {
-    max-width: 600px;
-    padding: 40px;
-  }
-
-  .quiz-question-title {
-    font-size: 32px;
-  }
-
-  .quiz-question-subtitle {
-    font-size: 20px;
-  }
-
-  .quiz-button {
-    font-size: 20px;
-    padding: 20px;
-  }
+.quiz-button--active {
+  background-color: var(--button-hover-color);
+  font-weight: bold;
+  border: 2px solid var(--button-hover-color);
 }
 </style>
