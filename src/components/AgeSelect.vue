@@ -1,6 +1,6 @@
 <script setup>
-import MainComponent from "@/components/QuestionTemplate.vue";
 import { useQuestionsStore } from "@/stores/questions.js";
+import QuestionTemplate from "@/components/QuestionTemplate.vue";
 
 const currentPage = 3;
 
@@ -11,7 +11,7 @@ const ageGap = questionsStore.questions[2]?.answers || "";
 </script>
 
 <template>
-  <MainComponent
+  <QuestionTemplate
     :currentPage="currentPage"
     :questionTitle="questionTitle"
     :subTitle="subTitle"
@@ -20,4 +20,3 @@ const ageGap = questionsStore.questions[2]?.answers || "";
 </template>
 
 <style scoped></style>
-/

@@ -1,5 +1,6 @@
 <script setup>
 import {computed} from "vue";
+import '@/assets/base.css';
 
 const props = defineProps({
   currentPage: {
@@ -56,16 +57,6 @@ const onClickPreviousButton = () => {
 </template>
 
 <style>
-:root {
-  --background-color: #1f002b;
-  --text-color: white;
-  --button-color: #e4229c;
-  --button-hover-color: #bf1b84;
-  --progress-bar-bg: #e8eaf2;
-  --progress-bar-fill: #e4229c;
-  --indicator-text-color: #e8eaf2;
-}
-
 .step-container {
   width: 100vh;
   margin: 0 auto;

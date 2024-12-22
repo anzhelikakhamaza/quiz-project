@@ -34,6 +34,17 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
+  --background-color: #1f002b;
+  --text-color: white;
+  --button-color: #e4229c;
+  --button-hover-color: #bf1b84;
+  --progress-bar-bg: #e8eaf2;
+  --progress-bar-fill: #e4229c;
+  --indicator-text-color: #e8eaf2;
+  --subtitle-color: #c4c8cc;
+  --option-button-bg-color: #36173d;
+  --option-button-hover-color: #e4229c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +58,8 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+
   }
 }
 

@@ -2,19 +2,29 @@
 import useQuestionsStore from "@/stores/questions.js";
 
 defineProps({
-  currentPage: Number,
-  questionTitle: String,
-  subTitle: String,
-  buttons: Array,
-  onClick: Function,
-  getBackToPreviousPage: Function,
+  currentPage: {
+    type: Number,
+    required: true,
+  },
+  questionTitle: {
+    type: String,
+    required: true,
+  },
+  subTitle: {
+    type: String,
+    required: true,
+  },
+  buttons: {
+    type: Array,
+    required: true,
+  },
 });
 
 const questionsStore = useQuestionsStore();
 
 const saveToStorage = (answer) => {
   questionsStore.selectedValue = answer;
-  console.log(questionsStore.questions);
+  console.log(answer);
 }
 
 </script>
@@ -34,14 +44,6 @@ const saveToStorage = (answer) => {
 </template>
 
 <style>
-:root {
-  --background-color: #1f002b;
-  --text-color: white;
-  --subtitle-color: #c4c8cc;
-  --button-bg-color: #36173d;
-  --button-hover-color: #e4229c;
-}
-
 .quiz-container {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -81,19 +83,19 @@ const saveToStorage = (answer) => {
   cursor: pointer;
   border: none;
   border-radius: 12px;
-  background-color: var(--button-bg-color);
+  background-color: var(--option-button-bg-color);
   color: var(--text-color);
   text-align: center;
   transition: background-color 0.3s ease;
 }
 
 .quiz-button:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--option-button-hover-color);
 }
 
 .quiz-button--active {
-  background-color: var(--button-hover-color);
+  background-color: var(--option-button-hover-color);
   font-weight: bold;
-  border: 2px solid var(--button-hover-color);
+  border: 2px solid var(--option-button-hover-color);
 }
 </style>
