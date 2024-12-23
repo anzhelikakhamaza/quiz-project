@@ -1,7 +1,7 @@
 <script setup>
 import useQuestionsStore from "@/stores/questions.js";
 
-defineProps({
+const props = defineProps({
   currentPage: {
     type: Number,
     required: true,
@@ -23,8 +23,11 @@ defineProps({
 const questionsStore = useQuestionsStore();
 
 const saveToStorage = (answer) => {
-  questionsStore.selectedValue = answer;
-  console.log(answer);
+  const questionIndex = props.currentPage - 1;
+  if (questionIndex >= 0 && questionIndex  < questionsStore.questions.length) {
+    questionsStore.questions[questionIndex].selectedValue = answer;
+    console.log(questionsStore.questions);
+  }
 }
 
 </script>
@@ -36,7 +39,7 @@ const saveToStorage = (answer) => {
       <p class="quiz-question-subtitle">{{ subTitle }}</p>
     </div>
     <div class="quiz-buttons">
-      <button v-for="button in buttons" :key="button" @click="saveToStorage(button)" :class="{'quiz-button--active': button === questionsStore.selectedValue}" class="quiz-button">
+      <button v-for="(button, index) in buttons" :key="index" @click="saveToStorage(button)" :class="{'quiz-button--active': button === questionsStore.questions[currentPage - 1].selectedValue}" class="quiz-button">
         {{ button }}
       </button>
     </div>

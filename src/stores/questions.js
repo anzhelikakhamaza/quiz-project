@@ -8,21 +8,21 @@ export const useQuestionsStore = defineStore("questions", {
                 question: "What is your preferred language?",
                 subtitle: "Choose language",
                 answers: ["English", "French", "German", "Spanish"],
-                selectedValue: ""
+                selectedValue: null
             },
             {
                 id: 2,
                 question: "What gender do you identify with?",
                 subtitle: "Please share how do you identify yourself",
                 answers: ["Female", "Male", "Other"],
-                selectedValue: ""
+                selectedValue: null
             },
             {
                 id: 3,
                 question: "What is your age?",
                 subtitle: "",
                 answers: ["18-29 year", "30-39 years", "40-49 years", "50+"],
-                selectedValue: ""
+                selectedValue: null
             },
             {
                 id: 4,
@@ -34,7 +34,7 @@ export const useQuestionsStore = defineStore("questions", {
                     "Lack of humor",
                     "Way too generic ending",
                 ],
-                selectedValue: ""
+                selectedValue: null
             },
             {
                 id: 5,
@@ -49,7 +49,7 @@ export const useQuestionsStore = defineStore("questions", {
                     "Young Adult",
                     "Bad Boy",
                 ],
-                selectedValue: ""
+                selectedValue: null
             },
         ],
     }),
