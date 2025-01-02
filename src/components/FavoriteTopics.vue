@@ -1,22 +1,16 @@
 <script setup>
 import QuestionTemplate from "@/components/QuestionTemplate.vue";
-import { useQuestionsStore } from "@/stores/questions.js";
 
-const currentPage = 5;
-
-const questionsStore = useQuestionsStore();
-const questionTitle = questionsStore.questions[4]?.question || "";
-const subTitle = questionsStore.questions[4]?.subtitle || "";
-const bookFav = questionsStore.questions[4]?.answers || "";
+const props = defineProps({
+  currentPage: {
+    type: Number,
+    required: true,
+  },
+})
 </script>
 
 <template>
-  <QuestionTemplate
-    :currentPage="currentPage"
-    :questionTitle="questionTitle"
-    :subTitle="subTitle"
-    :buttons="bookFav"
-  />
+  <QuestionTemplate :currentPage="currentPage"/>
 </template>
 
 <style scoped></style>

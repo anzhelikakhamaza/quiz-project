@@ -4,50 +4,57 @@ export const useQuestionsStore = defineStore("questions", {
     state: () => ({
         questions: [
             {
-                id: 1,
-                question: "What is your preferred language?",
-                subtitle: "Choose language",
-                answers: ["English", "French", "German", "Spanish"],
+                question: "question.language",
+                subtitle: "subtitle.language",
+                answers: [
+                    "answers.english",
+                    "answers.french",
+                    "answers.german",
+                    "answers.spanish"
+                ],
                 selectedValue: null
             },
             {
                 id: 2,
-                question: "What gender do you identify with?",
-                subtitle: "Please share how do you identify yourself",
-                answers: ["Female", "Male", "Other"],
+                question: "question.gender",
+                subtitle: "subtitle.gender",
+                answers: ["gender.female", "gender.male", "gender.other"],
                 selectedValue: null
             },
             {
                 id: 3,
-                question: "What is your age?",
+                question: "question.age",
                 subtitle: "",
-                answers: ["18-29 year", "30-39 years", "40-49 years", "50+"],
+                answers: ["age.18_29",
+                    "age.30_39",
+                    "age.40_49",
+                    "age.50_plus"],
                 selectedValue: null
             },
             {
                 id: 4,
-                question: "What do you hate the most in a book?",
+                question: "question.book_dislike",
                 subtitle: "",
                 answers: [
-                    "Lack of logic",
-                    "A slow speed",
-                    "Lack of humor",
-                    "Way too generic ending",
+                    "book_dislike.logic",
+                    "book_dislike.speed",
+                    "book_dislike.humor",
+                    "book_dislike.ending"
                 ],
                 selectedValue: null
             },
             {
                 id: 5,
-                question: "What are your favorite topics?",
-                subtitle: "Choose up to 3 topics you like",
+                question: "question.favorite_topics",
+                subtitle: "subtitle.favorite_topics",
                 answers: [
-                    "Werewolf",
-                    "Action",
-                    "Royal Obsession",
-                    "Billionaire",
-                    "Romance",
-                    "Young Adult",
-                    "Bad Boy",
+                    "topic.werewolf",
+                    "topic.action",
+                    "topic.royal_obsession",
+                    "topic.billionaire",
+                    "topic.romance",
+                    "topic.young_adult",
+                    "topic.bad_boy"
                 ],
                 selectedValue: null
             },

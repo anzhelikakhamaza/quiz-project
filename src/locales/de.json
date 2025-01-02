@@ -1,0 +1,47 @@
+{
+  "question": {
+    "language": "Welche Sprache bevorzugen Sie?",
+    "age": "Wie alt sind Sie?",
+    "book_dislike": "Was hassen Sie am meisten an einem Buch?",
+    "favorite_topics": "Was sind Ihre Lieblingsthemen?"
+  },
+  "subtitle": {
+    "language": "Wählen Sie eine Sprache",
+    "favorite_topics": "Wählen Sie bis zu 3 Themen aus, die Ihnen gefallen",
+    "gender": "Bitte wählen Sie Ihr Geschlecht"
+  },
+  "gender": {
+    "question": "Was ist Ihr Geschlecht?",
+    "subtitle": "Bitte wählen Sie Ihr Geschlecht",
+    "female": "Weiblich",
+    "male": "Männlich",
+    "other": "Andere"
+  },
+  "answer": {
+    "english": "Englisch",
+    "french": "Französisch",
+    "german": "Deutsch",
+    "spanish": "Spanisch"
+  },
+  "age": {
+    "18_29": "18-29 Jahre",
+    "30_39": "30-39 Jahre",
+    "40_49": "40-49 Jahre",
+    "50_plus": "50+"
+  },
+  "book_dislike": {
+    "logic": "Mangel an Logik",
+    "speed": "Langsames Tempo",
+    "humor": "Mangel an Humor",
+    "ending": "Ein zu generisches Ende"
+  },
+  "topic": {
+    "werewolf": "Werwolf",
+    "action": "Action",
+    "royal_obsession": "Königliche Besessenheit",
+    "billionaire": "Milliardär",
+    "romance": "Romanze",
+    "young_adult": "Jugendbuch",
+    "bad_boy": "Böser Junge"
+  }
+}

@@ -10,6 +10,14 @@ const props = defineProps({
   totalPage: {
     type: Number,
     required: true,
+  },
+  isHeaderHidden: {
+    type: Boolean,
+    default: false,
+  },
+  isNextButtonHidden: {
+    type: Boolean,
+    default: false,
   }
 });
 
@@ -29,7 +37,7 @@ const onClickPreviousButton = () => {
 
 <template>
   <div class="step-container">
-    <header class="step-header">
+    <header v-if="!isHeaderHidden" class="step-header">
       <div class="step-header-wrapper">
         <div class="step-header-button-wrapper">
           <button v-if="!isHidden" class="step-back-button"  @click="onClickPreviousButton">
@@ -50,7 +58,7 @@ const onClickPreviousButton = () => {
 
     <slot></slot>
 
-    <button class="step-next-button" @click="onClickStepButton">
+    <button v-if="!isNextButtonHidden" class="step-next-button" @click="onClickStepButton">
       Next
     </button>
   </div>
@@ -58,27 +66,34 @@ const onClickPreviousButton = () => {
 
 <style>
 .step-container {
-  width: 100vh;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+
+  padding: 24px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  gap: 24px;
+
+  border-radius: 16px;
 }
 
 .step-header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .step-header-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.step-header-button-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .step-back-button {
@@ -89,9 +104,13 @@ const onClickPreviousButton = () => {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-
 .step-back-button:hover {
   transform: scale(1.1);
+}
+
+.button-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .step-page-indicator {
@@ -99,6 +118,7 @@ const onClickPreviousButton = () => {
   color: var(--indicator-text-color);
   display: flex;
   align-items: center;
+  font-weight: 500;
 }
 
 .step-current-page {
@@ -108,14 +128,14 @@ const onClickPreviousButton = () => {
 
 .step-progress-bar {
   width: 100%;
-  height: 4px;
+  height: 6px;
   background-color: var(--progress-bar-bg);
-  border-radius: 2px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .step-progress-bar-fill {
-  height: 4px;
+  height: 6px;
   background-color: var(--progress-bar-fill);
   transition: width 0.3s ease;
 }
@@ -126,14 +146,14 @@ const onClickPreviousButton = () => {
   background-color: var(--button-color);
   border: none;
   border-radius: 12px;
-  color: var(--text-color);
+  color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .step-next-button:hover {
   background-color: var(--button-hover-color);
+  transform: scale(1.02);
 }
 </style>

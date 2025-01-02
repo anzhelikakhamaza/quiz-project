@@ -1,0 +1,46 @@
+{
+  "question": {
+    "language": "¿Cuál es tu idioma preferido?",
+    "gender": "¿Con qué género te identificas?",
+    "age": "¿Cuál es tu edad?",
+    "book_dislike": "¿Qué odias más en un libro?",
+    "favorite_topics": "¿Cuáles son tus temas favoritos?"
+  },
+  "subtitle": {
+    "language": "Elige un idioma",
+    "gender": "Por favor, selecciona cómo te identificas",
+    "favorite_topics": "Elige hasta 3 temas que te gusten"
+  },
+  "answers": {
+    "english": "Inglés",
+    "french": "Francés",
+    "german": "Alemán",
+    "spanish": "Español"
+  },
+  "gender": {
+    "female": "Femenino",
+    "male": "Masculino",
+    "other": "Otro"
+  },
+  "age": {
+    "18_29": "18-29",
+    "30_39": "30-39",
+    "40_49": "40-49",
+    "50_plus": "50+"
+  },
+  "book_dislike": {
+    "logic": "Falta de lógica",
+    "speed": "Un ritmo lento",
+    "humor": "Falta de humor",
+    "ending": "Un final demasiado genérico"
+  },
+  "topic": {
+    "werewolf": "Hombre lobo",
+    "action": "Acción",
+    "royal_obsession": "Obsesión real",
+    "billionaire": "Millonario",
+    "romance": "Romance",
+    "young_adult": "Jóvenes adultos",
+    "bad_boy": "Chico malo"
+  }
+}

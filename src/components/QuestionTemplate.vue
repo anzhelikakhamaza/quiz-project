@@ -1,46 +1,39 @@
 <script setup>
 import useQuestionsStore from "@/stores/questions.js";
+import {computed} from "vue";
 
 const props = defineProps({
   currentPage: {
     type: Number,
     required: true,
   },
-  questionTitle: {
-    type: String,
-    required: true,
-  },
-  subTitle: {
-    type: String,
-    required: true,
-  },
-  buttons: {
-    type: Array,
-    required: true,
-  },
 });
 
 const questionsStore = useQuestionsStore();
 
-const saveToStorage = (answer) => {
+const questionTitle = computed(() => questionsStore.questions[props.currentPage - 1]?.question || "");
+const subTitle = computed(() => questionsStore.questions[props.currentPage - 1]?.subtitle || "");
+const options = computed(() => questionsStore.questions[props.currentPage - 1]?.answers || "");
+
+const saveToStorage = (option) => {
   const questionIndex = props.currentPage - 1;
-  if (questionIndex >= 0 && questionIndex  < questionsStore.questions.length) {
-    questionsStore.questions[questionIndex].selectedValue = answer;
-    console.log(questionsStore.questions);
-  }
+  questionsStore.questions[questionIndex].selectedValue = option;
+  console.log(questionsStore.questions);
 }
+
+const getSelectedValue = computed(() => questionsStore.questions[props.currentPage - 1].selectedValue)
 
 </script>
 
 <template>
   <div class="quiz-container">
     <div class="quiz-question">
-      <h1 class="quiz-question-title">{{ questionTitle }}</h1>
-      <p class="quiz-question-subtitle">{{ subTitle }}</p>
+      <h1 class="quiz-question-title">{{ $t(questionTitle) }}</h1>
+      <p class="quiz-question-subtitle">{{ $t(subTitle) }}</p>
     </div>
     <div class="quiz-buttons">
-      <button v-for="(button, index) in buttons" :key="index" @click="saveToStorage(button)" :class="{'quiz-button--active': button === questionsStore.questions[currentPage - 1].selectedValue}" class="quiz-button">
-        {{ button }}
+      <button v-for="(option, index) in options" :key="index" @click="saveToStorage(option)" :class="{'quiz-button--active': option === getSelectedValue}" class="quiz-button">
+        {{ $t(option) }}
       </button>
     </div>
   </div>
